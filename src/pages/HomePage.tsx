@@ -1,13 +1,13 @@
 import Button from "../components/Button";
 import Card from "../components/Card";
-import img from "../assets/react.svg";
+import img from "../assets/maison.jpeg";
 import Header from "../components/Header";
 
 export default function HomePage() {
   return (
     <>
       <Header />
-      <main className="my-15 mx-60">
+      <main className="my-10 mx-60">
         <section className="px-15 py-10 gap-6 border border-gray-100 rounded-2xl">
           <h2 className="text-2xl font-semibold text-blue-950 pb-6">
             Rechercher
