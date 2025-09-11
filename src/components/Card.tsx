@@ -18,8 +18,8 @@ export default function Card({
   disponibility,
 }: CardProps) {
   return (
-    <div className=" border border-gray-50 rounded-xl grid grid-rows-2">
-      <img src={imgsrc} className="w-70 h-70" />
+    <div className=" border border-gray-50 rounded-xl grid grid-rows-2 w-70 h-140 overflow-hidden">
+      <img src={imgsrc} className="w-full h-full object-cover" />
       <div className="grid grid-rows-5 px-4 py-4 ">
         <p className="text-2xl font-medium">{localType}</p>
         <p className="text-xl font-light">
