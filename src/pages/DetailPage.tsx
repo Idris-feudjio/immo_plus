@@ -1,40 +1,26 @@
 import Header from "../components/Header";
 import img from "../assets/maison.jpeg";
 import Button from "../components/Button";
+import type { Property } from "../fake_data/fake_data";
 
 type DetailPageProps = {
-  property: any;
-  goToHome: () => void;
-  goToLogin: () => void;
+  property?: Property;
 };
-
-export default function DetailPage({
-  property,
-  goToHome,
-  goToLogin,
-}: DetailPageProps) {
-  if (!property) return <p>Aucune propriété sélectionnée</p>;
-
+export default function DetailPage({ property }: DetailPageProps) {
   return (
     <>
-      <Header goToHome={goToHome} goToLogin={goToLogin} />
+      <Header />
       <main className="my-10 mx-60 flex gap-8">
         <article className="flex-3">
           <img src={img} className="w-220 h-95 object-cover rounded-lg" />
           <div className="py-5">
-            <p className="text-3xl font-medium">Villa Moderne</p>
+            <p className="text-3xl font-medium">{property?.name}</p>
             <p className="py-1 text-xl font-light">
-              Marseille, Saint-Victor
-              <span className="ml-4 font-bold"> 800000 £</span>
+              {property?.city}, {property?.street}
+              <span className="ml-4 font-bold"> {property?.price} £</span>
             </p>
-            <p className="pb-1 text-lg">Disponible</p>
-            <p>
-              Une jolie maison blanche au style épuré, offrant une atmosphère
-              lumineuse et accueillante. Sa façade claire et soignée lui donne
-              un charme discret, parfait pour profiter d’un cadre paisible.
-              L’ambiance chaleureuse de cette maison en fait un lieu idéal pour
-              s’installer et se sentir rapidement chez soi.
-            </p>
+            <p className="pb-1 text-lg">{property?.disponibility}</p>
+            <p>{property?.description}</p>
           </div>
         </article>
         <aside className="flex-1 ">

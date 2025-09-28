@@ -2,7 +2,7 @@ import { useState } from "react";
 import LoginForm from "../components/LoginForm";
 import InscriptionForm from "../components/InscriptionForm";
 
-export default function LoginPage({ goToHome }: { goToHome: () => void }) {
+export default function LoginPage() {
   const [activeTab, setActiveTab] = useState<"login" | "signup">("login");
 
   return (
@@ -37,13 +37,6 @@ export default function LoginPage({ goToHome }: { goToHome: () => void }) {
           </div>
 
           {activeTab === "login" ? <LoginForm /> : <InscriptionForm />}
-
-          <button
-            onClick={goToHome}
-            className="mt-6 w-full rounded-md text-white font-medium py-2 px-4 bg-gray-500"
-          >
-            Retour à l’accueil
-          </button>
         </div>
       </div>
     </div>

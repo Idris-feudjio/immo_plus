@@ -1,22 +1,13 @@
+import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import Card from "../components/Card";
 import Header from "../components/Header";
 import { propertyData } from "../fake_data/fake_data";
 
-type HomePageProps = {
-  goToDetail: (property: any) => void;
-  goToLogin: () => void;
-  goToHome: () => void;
-};
-
-export default function HomePage({
-  goToDetail,
-  goToHome,
-  goToLogin,
-}: HomePageProps) {
+export default function HomePage() {
   return (
     <>
-      <Header goToHome={goToHome} goToLogin={goToLogin} />
+      <Header />
       <main className="my-10 mx-60">
         <section className="px-15 py-5 gap-6 border border-gray-100 rounded-2xl">
           <h2 className="text-2xl font-semibold text-blue-950 pb-6">
@@ -52,16 +43,9 @@ export default function HomePage({
         <section className="py-10 flex flex-wrap gap-4 justify-center items-center">
           {propertyData &&
             propertyData.map((property, key) => (
-              <Card
-                key={key}
-                city={property.city}
-                disponibility={property.disponibility}
-                imgsrc={property.imgsrc}
-                localType={property.local}
-                price={property.price}
-                street={property.street}
-                onClick={() => goToDetail(property)}
-              />
+              <Link to="/detail">
+                <Card key={key} property={property} />
+              </Link>
             ))}
         </section>
       </main>
