@@ -7,6 +7,7 @@ type CardProps = {
   street: string;
   price: number;
   disponibility: string;
+  onClick: () => void;
 };
 
 export default function Card({
@@ -16,6 +17,7 @@ export default function Card({
   street,
   price,
   disponibility,
+  onClick,
 }: CardProps) {
   return (
     <div className=" border border-gray-50 rounded-xl grid grid-rows-2 w-70 h-140 overflow-hidden">
@@ -27,7 +29,10 @@ export default function Card({
         </p>
         <p className="text-2xl font-medium">{price} £/mois</p>
         <p className="text-lg">{disponibility}</p>
-        <Button className="rounded-lg text-white font-medium py-2 px-4 bg-blue-950">
+        <Button
+          onClick={onClick}
+          className="rounded-lg text-white font-medium py-2 px-4 bg-blue-950"
+        >
           Voir les détails
         </Button>
       </div>

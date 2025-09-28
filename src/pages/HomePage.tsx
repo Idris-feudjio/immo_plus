@@ -1,13 +1,22 @@
 import Button from "../components/Button";
 import Card from "../components/Card";
-import img from "../assets/maison.jpeg";
 import Header from "../components/Header";
 import { propertyData } from "../fake_data/fake_data";
 
-export default function HomePage() {
+type HomePageProps = {
+  goToDetail: (property: any) => void;
+  goToLogin: () => void;
+  goToHome: () => void;
+};
+
+export default function HomePage({
+  goToDetail,
+  goToHome,
+  goToLogin,
+}: HomePageProps) {
   return (
     <>
-      <Header />
+      <Header goToHome={goToHome} goToLogin={goToLogin} />
       <main className="my-10 mx-60">
         <section className="px-15 py-5 gap-6 border border-gray-100 rounded-2xl">
           <h2 className="text-2xl font-semibold text-blue-950 pb-6">
@@ -34,10 +43,10 @@ export default function HomePage() {
                   Prix max
                 </option>
               </select>
-              <Button className="rounded-lg text-white font-medium py-2 px-4 bg-blue-950 flex-1">
-                Rechercher
-              </Button>
             </div>
+            <Button className="rounded-lg text-white font-medium py-2 px-4 bg-blue-950">
+              Rechercher
+            </Button>
           </form>
         </section>
         <section className="py-10 flex flex-wrap gap-4 justify-center items-center">
@@ -51,6 +60,7 @@ export default function HomePage() {
                 localType={property.local}
                 price={property.price}
                 street={property.street}
+                onClick={() => goToDetail(property)}
               />
             ))}
         </section>

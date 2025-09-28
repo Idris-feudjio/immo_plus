@@ -2,10 +2,22 @@ import Header from "../components/Header";
 import img from "../assets/maison.jpeg";
 import Button from "../components/Button";
 
-export default function DetailPage() {
+type DetailPageProps = {
+  property: any;
+  goToHome: () => void;
+  goToLogin: () => void;
+};
+
+export default function DetailPage({
+  property,
+  goToHome,
+  goToLogin,
+}: DetailPageProps) {
+  if (!property) return <p>Aucune propriété sélectionnée</p>;
+
   return (
     <>
-      <Header />
+      <Header goToHome={goToHome} goToLogin={goToLogin} />
       <main className="my-10 mx-60 flex gap-8">
         <article className="flex-3">
           <img src={img} className="w-220 h-95 object-cover rounded-lg" />
