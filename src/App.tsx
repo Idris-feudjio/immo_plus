@@ -1,11 +1,18 @@
-import InscriptionForm from "./components/InscriptionForm";
-import LoginForm from "./components/LoginForm";
-import RecapNav from "./components/RecapNav";
-import HomePage from "./pages/HomePage";
-import LoginPage from "./pages/LoginPage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomeLayout from "./layout/HomeLayout";
+import DetailLayout from "./layout/DetailLayout";
+import LoginLayout from "./layout/LoginLayout";
 
 function App() {
-  return <RecapNav />;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomeLayout />} />
+        <Route path="/detail" element={<DetailLayout />} />
+        <Route path="/login" element={<LoginLayout />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
